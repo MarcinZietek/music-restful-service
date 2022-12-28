@@ -3,9 +3,11 @@ package pl.mz.musicmvcrest.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.mz.musicmvcrest.domain.Album;
+import pl.mz.musicmvcrest.domain.Song;
 import pl.mz.musicmvcrest.repositories.AlbumRepository;
 import pl.mz.musicmvcrest.repositories.SongRepository;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 @Component
@@ -32,17 +34,24 @@ public class BootStrapData implements CommandLineRunner {
         albumRepository.save(a1);
 
         Album a2 = new Album();
-        a2.setTitle("Astronomia Poety");
+        a2.setTitle("Astronomia Poety. Baczyński");
         a2.setRegion("Poland");
-        a2.setReleasedDate(LocalDate.of(2020, 11, 15));
+        a2.setReleasedDate(LocalDate.of(2020, 7, 24));
         albumRepository.save(a2);
 
         Album a3 = new Album();
         a3.setTitle("A Night At The Opera");
         a3.setRegion("United Kingdom");
-        a3.setReleasedDate(LocalDate.of(1975, 10, 15));
+        a3.setReleasedDate(LocalDate.of(1975, 11, 21));
         albumRepository.save(a3);
 
+        Album a4 = new Album();
+        a4.setTitle("Vows");
+        a4.setRegion("North America / Europe");
+        a4.setReleasedDate(LocalDate.of(2012, 5, 22));
+        albumRepository.save(a4);
+
         System.out.println("Albums Saved " + albumRepository.count());
+
     }
 }
