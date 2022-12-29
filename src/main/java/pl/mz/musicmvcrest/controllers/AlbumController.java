@@ -38,7 +38,19 @@ public class AlbumController {
     public Album saveAlbum(@RequestBody Album album){
         return albumService.saveAlbum(album);
     }
-    
+
+    @PutMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateAlbum(@PathVariable("id") long id, @RequestBody Album album) {
+        Album updateAlbum = albumService.findAlbumById(id);
+        if (!updateAlbum.getId().equals(id)) {
+            throw new IllegalArgumentException();
+        }
+        updateAlbum.setTitle(album.getTitle());
+        updateAlbum.setRegion(album.getRegion());
+        updateAlbum.setReleasedDate(album.getReleasedDate());
+        albumService.updateAlbum(album);
+    }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
