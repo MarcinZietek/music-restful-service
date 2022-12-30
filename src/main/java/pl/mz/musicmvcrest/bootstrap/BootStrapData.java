@@ -3,11 +3,9 @@ package pl.mz.musicmvcrest.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.mz.musicmvcrest.domain.Album;
-import pl.mz.musicmvcrest.domain.Song;
 import pl.mz.musicmvcrest.repositories.AlbumRepository;
 import pl.mz.musicmvcrest.repositories.SongRepository;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 
 @Component
@@ -25,7 +23,7 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println("Loading Data");
+        System.out.println("Loading Albums");
 
         Album a1 = new Album();
         a1.setTitle("Vows");
@@ -52,6 +50,12 @@ public class BootStrapData implements CommandLineRunner {
         albumRepository.save(a4);
 
         System.out.println("Albums Saved " + albumRepository.count());
+
+        System.out.println("loading Songs ");
+
+        //ToDo 
+
+        System.out.println("Songs saved " + songRepository.count());
 
     }
 }

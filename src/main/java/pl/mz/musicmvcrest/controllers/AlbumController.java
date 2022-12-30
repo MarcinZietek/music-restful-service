@@ -9,6 +9,7 @@ import pl.mz.musicmvcrest.services.AlbumService;
 import pl.mz.musicmvcrest.services.AlbumServiceImpl;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping(AlbumController.BASE_URL)
@@ -41,14 +42,7 @@ public class AlbumController {
 
     @PutMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void updateAlbum(@PathVariable("id") long id, @RequestBody Album album) {
-        Album updateAlbum = albumService.findAlbumById(id);
-        if (!updateAlbum.getId().equals(id)) {
-            throw new IllegalArgumentException();
-        }
-        updateAlbum.setTitle(album.getTitle());
-        updateAlbum.setRegion(album.getRegion());
-        updateAlbum.setReleasedDate(album.getReleasedDate());
+    public void updateAlbum(@PathVariable Long id, @RequestBody Album album) {
         albumService.updateAlbum(album);
     }
 

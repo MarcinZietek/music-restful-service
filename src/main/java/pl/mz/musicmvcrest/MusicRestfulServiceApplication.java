@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MusicResfulServiceApplication {
+public class MusicRestfulServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MusicResfulServiceApplication.class, args);
+		SpringApplication.run(MusicRestfulServiceApplication.class, args);
 	}
 
 }

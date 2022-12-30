@@ -1,10 +1,12 @@
 package pl.mz.musicmvcrest.services;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.mz.musicmvcrest.domain.Album;
 import pl.mz.musicmvcrest.repositories.AlbumRepository;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class AlbumServiceImpl implements AlbumService{
@@ -30,9 +32,18 @@ public class AlbumServiceImpl implements AlbumService{
         return albumRepository.save(album);
     }
 
+    @Transactional
     @Override
     public void updateAlbum(Album album) {
-        albumRepository.save(album);
+        Album foundAlbum = albumRepository.findById(album.getId()).get();
+        if (!foundAlbum.getId().equals(album.getId())){
+            throw new NoSuchElementException();
+        } else {
+            foundAlbum.setTitle(album.getTitle());
+            foundAlbum.setRegion(album.getRegion());
+            foundAlbum.setReleasedDate(album.getReleasedDate());
+            albumRepository.save(album);
+        }
     }
 
     @Override
