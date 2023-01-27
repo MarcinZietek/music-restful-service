@@ -1,15 +1,12 @@
 package pl.mz.musicmvcrest.controllers;
 
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.mz.musicmvcrest.domain.Album;
 import pl.mz.musicmvcrest.repositories.AlbumRepository;
-import pl.mz.musicmvcrest.services.AlbumService;
 import pl.mz.musicmvcrest.services.AlbumServiceImpl;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping(AlbumController.BASE_URL)

@@ -1,12 +1,18 @@
 package pl.mz.musicmvcrest.bootstrap;
 
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.mz.musicmvcrest.domain.Album;
+import pl.mz.musicmvcrest.domain.Song;
 import pl.mz.musicmvcrest.repositories.AlbumRepository;
 import pl.mz.musicmvcrest.repositories.SongRepository;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 
 @Component
 public class BootStrapData implements CommandLineRunner {
@@ -53,7 +59,6 @@ public class BootStrapData implements CommandLineRunner {
 
         System.out.println("loading Songs ");
 
-        //ToDo 
 
         System.out.println("Songs saved " + songRepository.count());
 
