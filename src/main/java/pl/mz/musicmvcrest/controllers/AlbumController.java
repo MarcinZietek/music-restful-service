@@ -14,11 +14,9 @@ public class AlbumController {
 
     public static final String BASE_URL = "/api/v1/albums";
     private final AlbumServiceImpl albumService;
-    private final AlbumRepository albumRepository;
 
-    public AlbumController(AlbumServiceImpl albumService, AlbumRepository albumRepository) {
+    public AlbumController(AlbumServiceImpl albumService) {
         this.albumService = albumService;
-        this.albumRepository = albumRepository;
     }
 
     @GetMapping()
