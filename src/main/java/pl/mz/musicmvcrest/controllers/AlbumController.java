@@ -25,6 +25,7 @@ public class AlbumController {
     }
 
     @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public Album getAlbumById(@PathVariable Long id){
         return albumService.findAlbumById(id);
     }
@@ -35,7 +36,7 @@ public class AlbumController {
         return albumService.saveAlbum(album);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void updateAlbum(@PathVariable Long id, @RequestBody Album album) {
         albumService.updateAlbum(album);
