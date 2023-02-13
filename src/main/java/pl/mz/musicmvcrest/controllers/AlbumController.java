@@ -19,6 +19,7 @@ public class AlbumController {
         this.albumService = albumService;
     }
 
+    @CrossOrigin
     @GetMapping()
     List<Album> getAllAlbums(){
         return albumService.findAllAlbums();
