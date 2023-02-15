@@ -31,7 +31,7 @@ public class AlbumController {
         return albumService.findAlbumById(id);
     }
 
-    @PostMapping
+    @PostMapping(headers = "Accept=application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public Album saveAlbum(@RequestBody Album album){
         return albumService.saveAlbum(album);
